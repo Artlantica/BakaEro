@@ -46,6 +46,8 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
 
     long thinkingTime;
 
+    int numQuest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         logEvent("Start play game");
@@ -58,6 +60,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
 
         //create game controller
         gmc = ExpressController.getInstance();
+        numQuest = 0;
 
         //init widgets
         initialViews();
@@ -165,7 +168,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
                         loadExpression();
                         updateAnswer();
                         break;
-                    case 11: //backspace
+                    case 11: // backspace
                         tempMem /= 10;
                         updateAnswer();
                         break;
@@ -174,13 +177,12 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
                             nextQuestion();
                             break;
                         }
-                        
                         if (tempMem != 0 && tempMem<1000) {
                             tempMem *= 10;
-                            updateAnswer();
                         }
+                        updateAnswer();
                         break;
-                    default: //other case 1-9
+                    default: // other case 1-9
                         if (tempMem<1000) {
                             tempMem = tempMem * 10 + i;
                             updateAnswer();
@@ -199,7 +201,8 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
     private void loadExpression(){
 
         tempMem=0;
-        expression = gmc.createExpression(1);
+        numQuest++;
+        expression = gmc.createExpression(numQuest);
         result = expression.getResult();
 
         txOperandOne.setText(String.format("%d", expression.getOperandOne()));

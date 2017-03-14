@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="thinking_time">5</integer>
+
+    <integer name="numLv1">3</integer>
+    <integer name="numLv2">3</integer>
+    <integer name="numLv3">3</integer>
+    <integer name="numLv4">3</integer>
+    <integer name="numLv5">3</integer>
+    <integer name="numLv6">3</integer>
+    <integer name="numLv7">3</integer>
+    <integer name="numLv8">3</integer>
+    <integer name="numLv9">3</integer>
+    <integer name="numLv10">3</integer>
+
 </resources>
