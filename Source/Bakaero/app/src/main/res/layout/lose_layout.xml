@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:background="@color/clouds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+        <ImageView
+            android:src="@mipmap/stupid"
+            android:layout_width="274dp"
+            android:layout_height="64dp"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:background="@color/emerald"
+            android:contentDescription="@string/app_name"
+            android:layout_weight="1.70" />
+        <TextView
+            android:text="I know that you are very stupid !"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1.20" />
+
+        <TextView
+            android:id="@+id/txDeadReason"
+            android:text="9 + 10 = 3"
+            android:textSize="25sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1.63" />
+
+        <Button
+            android:text="@string/fine"
+            android:textColor="@color/clouds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/emerald_button"
+            android:id="@+id/btnFine"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

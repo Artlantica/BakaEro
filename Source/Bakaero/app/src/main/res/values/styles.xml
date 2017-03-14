@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="no_title" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/green_sea</item>
+        <item name="colorPrimaryDark">@color/green_sea</item>
+    </style>
+
+</resources>

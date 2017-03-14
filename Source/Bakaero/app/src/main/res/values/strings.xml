@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Baka Ero</string>
+    <string name="stupid_slogan">you dont know how you stupid you are!</string>
+    <string name="prove">PROVE</string>
+    <string name="ladder">Ladder board</string>
+    <string name="help">Help</string>
+    <string name="ten">10</string>
+    <string name="operand">19</string>
+    <string name="operator">+</string>
+    <string name="equal_sym">=</string>
+    <string name="question_mak">\?</string>
+    <string name="your_score">Your score:</string>
+    <string name="zero">0</string>
+    <string name="max_time">7</string>
+    <string name="username">Stupid Name</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="fine">OK! Fine</string>
+
+</resources>
