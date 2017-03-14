@@ -23,9 +23,8 @@ public class ExpressController {
             lv++;
             // default 3 question for each level
             numQuest-=3;
+        } while (numQuest>0 && lv<9);
 
-
-        } while (numQuest>0);
 
         // has 30% to get a question with difficult lower than present
         lv = (rand(new Range(1,3)))==0? rand(new Range(1, lv-1)) : lv;
@@ -96,7 +95,10 @@ public class ExpressController {
             // kind 7: ab +/- cd (high)
             new ExpressRange(Range.AddnSub, Range.MediumNumber, Range.MediumNumber),
             // kind 8: a x bc (high)
-            new ExpressRange(Range.Mul, Range.OneDigit, Range.MediumNumber)
+            new ExpressRange(Range.Mul, Range.OneDigit, Range.MediumNumber),
+
+            // kind 9: ab x bc (high)
+            new ExpressRange(Range.Div, Range.SmallNumberHigherTen, Range.MediumNumber)
     };
 
     class ExpressRange{
