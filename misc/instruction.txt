@@ -7,20 +7,20 @@ Game Play: Make a quick answer for simple expression
 ● If player make a wrong answer, game will be finish immediately; go to next question if the answer was right.
 ● There are 11 kinds of expression grouped in 4 levels:
 	Level A:
-		1. formular : a ± b
-  		2. formular : ab ± c (higher operand < 30)
-		3. formular : a x b
+		1. formular : a ± b 											3
+		2. formular : ab ± c (higher operand < 30)						4
+		3. formular : a x b 											5
 	Level B:
-	    4. formular : ab ± cd (higher operand < 30)
-	    5. formular : a x bc (higher operand < 30) 
-	    6. formular : ab ÷ c (higher operand < 30)
+		4. formular : ab ± cd (higher operand < 30)						6
+		5. formular : a x bc (higher operand < 30) 						7
+		6. formular : ab ÷ c (higher operand < 30)						8
 	Level C:
-	    7. formular : ab ± cd (higher operand >30 and < 100)  
-	    8. formular : ab x cd (higher operand >30 and < 100)
-	    9. formular : a x bc (higher operand < 30 and < 100)  
+	    7. formular : ab ± cd (higher operand >30 and < 100)  			9
+	    8. formular : ab x cd (higher operand >30 and < 100)			10
+	    9. formular : a x bc (higher operand < 30 and < 100)  			11
 	Level D:
-	    10. formular : ab x cd (higher operand > 30 and < 100 )
-		11. formular : ab ÷ cd (higher operand > 30 and < 100 )
+	    10. formular : ab x cd (higher operand > 30 and < 100 )			12
+		11. formular : ab ÷ cd (higher operand > 30 and < 100 )			13
 	*Note : a, b, c, d is a digit; all divisions are divisible.
 
 Player Manage:
