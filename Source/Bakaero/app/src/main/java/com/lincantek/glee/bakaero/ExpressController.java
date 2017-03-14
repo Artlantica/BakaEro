@@ -18,13 +18,12 @@ public class ExpressController {
     public Expression createExpression(int numQuest){
 
         // set range for two operators
-        int lv = 0;
+        int lv = -1;
         do {
             lv++;
             // default 3 question for each level
             numQuest-=3;
         } while (numQuest>0 && lv<9);
-
 
         // has 30% to get a question with difficult lower than present
         lv = (rand(new Range(1,3)))==0? rand(new Range(1, lv-1)) : lv;
