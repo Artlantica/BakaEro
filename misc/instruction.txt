@@ -1,0 +1,31 @@
+BAKA ERO - MOBILE QUIZ GAME
+Author : AnhLB
+Duration : 2 weeks
+
+Game Play: Make a quick answer for simple expression
+● Player click to button to give a result of an expression in 10 seconds.
+● If player make a wrong answer, game will be finish immediately; go to next question if the answer was right.
+● There are 11 kinds of expression grouped in 4 levels:
+	Level A:
+		1. formular : a ± b
+  		2. formular : ab ± c (higher operand < 30)
+		3. formular : a x b
+	Level B:
+	    4. formular : ab ± cd (higher operand < 30)
+	    5. formular : a x bc (higher operand < 30) 
+	    6. formular : ab ÷ c (higher operand < 30)
+	Level C:
+	    7. formular : ab ± cd (higher operand >30 and < 100)  
+	    8. formular : ab x cd (higher operand >30 and < 100)
+	    9. formular : a x bc (higher operand < 30 and < 100)  
+	Level D:
+	    10. formular : ab x cd (higher operand > 30 and < 100 )
+		11. formular : ab ÷ cd (higher operand > 30 and < 100 )
+	*Note : a, b, c, d is a digit; all divisions are divisible.
+
+Player Manage:
+● Use Realm to manage players info
+● Save name and the expression which killed the player (need improvement)
+● User may connect to social network to share their score (undercontruction)
+
+Mockup Here: https://baoanhglee.mybalsamiq.com/projects/prmassignement/
