@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ladder_board"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+
+    tools:context="com.lincantek.glee.bakaero.LadderBoardActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="272dp"
+            android:layout_height="82dp"
+            android:src="@mipmap/stupid_greensea"
+            android:scaleType="centerInside"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:text="@string/i_know_that_someone_want_to_record_their_stupid_level"
+            android:gravity="center"
+            android:fontFamily="casual"
+            android:textColor="@color/midnight_blue"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
+        <ListView
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:id="@+id/listPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>
