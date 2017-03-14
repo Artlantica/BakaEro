@@ -321,7 +321,7 @@
                 android:fontFamily="casual"
                 android:layout_gravity="end|bottom"
                 android:gravity="end|bottom"
-                android:textColor="@color/alizarin"
+                android:textColor="@color/pumpkin"
                 android:id="@+id/txScore" />
 
 
