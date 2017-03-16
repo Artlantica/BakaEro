@@ -5,6 +5,7 @@ import com.lincantek.glee.bakaero.model.Player;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.Sort;
 
 /**
  * Created by luyen on 14/03/2017.
@@ -32,8 +33,8 @@ public class DBContext {
         realm.commitTransaction();
     }
 
-    public List<Player> getAllRecord() {
-        return realm.where(Player.class).findAll();
+    public List<Player> getAllRecordSortByScore() {
+        return realm.where(Player.class).findAll().sort("score", Sort.DESCENDING);
     }
 
     public Player getByID(int id) {

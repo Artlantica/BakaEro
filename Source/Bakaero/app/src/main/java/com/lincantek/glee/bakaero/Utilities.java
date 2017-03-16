@@ -1,11 +1,36 @@
 package com.lincantek.glee.bakaero;
 
+import java.util.Random;
+
 /**
  * Created by luyen on 11/03/2017.
  */
 
 public class Utilities {
+    private static int MIN_LENGTH = 4;
+    private static int MAX_LENGTH = 4;
 
+    public static String random() {
+        Random generator = new Random();
+        StringBuilder randomStringBuilder = new StringBuilder();
+        int randomLength = generator.nextInt((MAX_LENGTH - MIN_LENGTH) + 1) + MIN_LENGTH;
+        char tempChar;
+        int typeOfChar;
+        for (int i = 0; i < randomLength; i++){
+            typeOfChar = generator.nextInt(3);
+            tempChar='_';
+            switch (typeOfChar){
+                case 0: tempChar = (char) (generator.nextInt(10) + 48);
+                    break;
+                case 1: tempChar = (char) (generator.nextInt(26) + 65);
+                    break;
+                case 2: tempChar = (char) (generator.nextInt(26) + 61);
+                    break;
+            }
+            randomStringBuilder.append(tempChar);
+        }
+        return randomStringBuilder.toString();
+    }
 
     /**
      * Check a number if it's prime, assume that 1 is a prime

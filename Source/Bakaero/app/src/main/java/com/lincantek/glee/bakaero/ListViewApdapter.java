@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.lincantek.glee.bakaero.model.Player;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,21 +53,22 @@ public class ListViewApdapter extends BaseAdapter {
         if (view != null) {
             model = list.get(position);
             if (model != null) {
-                TextView txtId = (TextView) view.findViewById(R.id.txt_id);
-                TextView txtName = (TextView) view.findViewById(R.id.txt_name);
-                TextView txtAddress = (TextView) view.findViewById(R.id.txt_address);
-                txtId.setText(String.valueOf(model.getId()));
-                txtName.setText(model.getName());
-                txtAddress.setText(model.getAddresss());
+                TextView txScore = (TextView) view.findViewById(R.id.txScore);
+                TextView txName = (TextView) view.findViewById(R.id.txName);
+                TextView txDate = (TextView) view.findViewById(R.id.txDate);
+                TextView txKiller = (TextView) view.findViewById(R.id.txKiller);
+
+                txScore.setText(String.valueOf(model.getScore()));
+                txName.setText(model.getName());
+
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                txDate.setText(formatter.format(model.getTimeRecord()));
+
+                txKiller.setText(model.getKiller());
             }
         }
 
         return view;
     }
 
-    public void swap(List<Player> list1){
-        this.list.clear();
-        this.list.addAll(list1);
-        notifyDataSetChanged();
-    }
 }

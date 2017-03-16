@@ -43,6 +43,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
     int result;
     ExpressController gmc;
 
+    DBContext dbContext;
 
     long thinkingTime;
 
@@ -73,6 +74,8 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         }
         player = new Player(playerName);
 
+        // get database context
+        dbContext = DBContext.getInst();
 
         //animation
         overridePendingTransition(R.anim.trans_in, R.anim.trans_out);
@@ -151,6 +154,8 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         logEvent("Show register dialog");
         dialog.show();
 
+        dbContext.savePlayer(player);
+
     }
 
     /**
@@ -199,7 +204,6 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void loadExpression(){
-
         tempMem=0;
         numQuest++;
         expression = gmc.createExpression(numQuest);

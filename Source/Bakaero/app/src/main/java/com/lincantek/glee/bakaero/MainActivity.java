@@ -52,6 +52,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnPlay:
                 showDialog();
+                break;
+            case R.id.btnLadder:
+                Intent intent = new Intent(MainActivity.this, LadderBoardActivity.class);
+                startActivity(intent);
+                break;
         }
     }
     private Dialog dialog;
@@ -106,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //animation
         overridePendingTransition(R.anim.trans_back_in, R.anim.trans_back_out);
     }
-
 
     public void showToast(String msg){
         Toast toast =Toast.makeText(getApplicationContext(),msg + "\n" +

@@ -8,7 +8,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="176dp"
         android:layout_height="81dp"
-        android:background="@mipmap/stupid"
+        android:background="@mipmap/stupid_cloud"
         android:scaleType="centerInside"
         android:layout_marginTop="100dp"
         />
