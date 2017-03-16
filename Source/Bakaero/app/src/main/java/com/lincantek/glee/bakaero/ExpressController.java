@@ -88,14 +88,13 @@ public class ExpressController {
             // kind 4: ab +/- cd
             new ExpressRange(Range.AddnSub, Range.SmallNumberHigherTen, Range.SmallNumberHigherTen),
             // kind 5: a x bc
-            new ExpressRange(Range.Mul, Range.OneDigit, Range.SmallNumber),
+            new ExpressRange(Range.Mul, Range.OneDigit, Range.SmallNumberHigherTen),
             // kind 6: ab / c
             new ExpressRange(Range.Div, Range.SmallNumberHigherTen, Range.OneDigit),
             // kind 7: ab +/- cd (high)
             new ExpressRange(Range.AddnSub, Range.MediumNumber, Range.MediumNumber),
             // kind 8: a x bc (high)
             new ExpressRange(Range.Mul, Range.OneDigit, Range.MediumNumber),
-
             // kind 9: ab x bc (high)
             new ExpressRange(Range.Div, Range.SmallNumberHigherTen, Range.MediumNumber)
     };
@@ -123,6 +122,4 @@ public class ExpressController {
             return operator;
         }
     }
-
-
 }

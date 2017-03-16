@@ -10,7 +10,7 @@ public class Range {
 
     public static Range OneDigit = new Range(0,9);
     public static Range SmallNumberHigherTen = new Range(10,29);
-    public static Range SmallNumber = new Range(1,29);
+    public static Range SmallNumber = new Range(0,29);
     public static Range MediumNumber = new Range(25, 49);
 
     public static Range AddnSub = new Range(0,1);
