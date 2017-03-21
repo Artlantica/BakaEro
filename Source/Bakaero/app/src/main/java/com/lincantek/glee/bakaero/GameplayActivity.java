@@ -169,11 +169,14 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             if (v.getId()==BUTTON_IDS[i]) {
                 switch (i) {
                     case 10: // clear
+                        // if nothing in memory, do nothin
+                        if (tempMem==0) break;
                         tempMem = 0;
-                        loadExpression();
                         updateAnswer();
                         break;
                     case 11: // backspace
+                        // if nothing in memory, do nothin
+                        if (tempMem==0) break;
                         tempMem /= 10;
                         updateAnswer();
                         break;
