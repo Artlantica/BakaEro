@@ -54,7 +54,7 @@ public class DBContext {
     }
 
     public List<Player> getAllRecordSortByTime() {
-        return realm.where(Player.class).findAll().sort("score", Sort.DESCENDING);
+        return realm.where(Player.class).findAll().sort("timeRecord", Sort.DESCENDING);
     }
 
     public List<Player> getTopRecordByPlayer() {

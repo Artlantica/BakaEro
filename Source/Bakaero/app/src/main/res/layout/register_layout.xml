@@ -17,12 +17,13 @@
             android:background="@color/emerald"
             android:contentDescription="@string/app_name" />
         <TextView
-            android:text="Let me know about you\n Stupid one!"
+            android:text="@string/let_me_know_about_you_n_stupid_one"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:id="@+id/txMessage" />
         <EditText
             android:id="@+id/edUsername"
             android:gravity="center"
@@ -30,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:hint="@string/username" />
+            android:hint="@string/new_stupid_name" />
 
         <TableLayout
             android:layout_width="match_parent"

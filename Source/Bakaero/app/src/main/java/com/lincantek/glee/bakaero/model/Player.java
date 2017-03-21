@@ -5,8 +5,6 @@ import java.util.Date;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-import static com.lincantek.glee.bakaero.Utilities.random;
-
 /**
  * Created by luyen on 12/03/2017.
  */
@@ -14,8 +12,7 @@ import static com.lincantek.glee.bakaero.Utilities.random;
 public class Player extends RealmObject{
 
     @PrimaryKey
-    private String id;
-
+    //private String id;    remove id/use name as primary key
     private String name;
     private int score;
     private Date timeRecord;
@@ -26,12 +23,10 @@ public class Player extends RealmObject{
     }
 
     public Player(String name) {
-        id = random();
         this.name = name;
         score=0;
         timeRecord = new Date();
     }
-
 
     /**
      * Call when player get one score

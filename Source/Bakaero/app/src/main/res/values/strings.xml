@@ -20,5 +20,7 @@
     <string name="i_know_that_someone_want_to_record_their_stupid_level">someone want to record their stupid things</string>
     <string name="delete_all_stupid_things">Delete all Stupid things</string>
     <string name="no_records">No stupid things here</string>
+    <string name="let_me_know_about_you_n_stupid_one">Let me know about you\n Stupid one!</string>
+    <string name="new_stupid_name">New stupid name</string>
 
 </resources>

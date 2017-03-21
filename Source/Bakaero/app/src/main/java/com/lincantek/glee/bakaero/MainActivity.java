@@ -13,12 +13,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lincantek.glee.bakaero.model.Player;
+
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String PLAYER_NAME = "BAKANAME";
     Button btnPlay, btnLadder, btnHelp;
 
     DBContext dbContext;
+    List<Player> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dbContext = DBContext.getInst();
+        list = dbContext.getAllRecordSortByTime();
         init_view();
         logEvent("Main Create End");
     }
@@ -63,48 +69,96 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
     private Dialog dialog;
-    public void showDialog(){
+    public void showDialog() {
         dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(true);
         dialog.setContentView(R.layout.register_layout);
 
-        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancelRegist);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logEvent("Dismiss register dialog");
-                dialog.dismiss();
-            }
-        });
+        Button btnLeft = (Button) dialog.findViewById(R.id.btnRegist);
+        Button btnRight = (Button) dialog.findViewById(R.id.btnCancelRegist);
 
-        Button btnDone = (Button) dialog.findViewById(R.id.btnRegist);
-        btnDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    EditText txUserName = (EditText) dialog.findViewById(R.id.edUsername);
-                    String userName;
-                    if ((userName = txUserName.getText().toString().trim()).isEmpty()) {
-                        showToast("You didn't enter your name yet!");
-                    } else {
-                        logEvent("Dismiss register dialog");
-                        dialog.dismiss();
-                        logEvent("Switch to Game Play Activity.");
-                        Intent intent = new Intent(MainActivity.this, GameplayActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putString(PLAYER_NAME, userName);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
+        showToast(String.format("%d", list.size()));
+
+        if (list.isEmpty()) {
+            btnLeft.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        EditText txUserName = (EditText) dialog.findViewById(R.id.edUsername);
+                        String userName;
+                        if ((userName = txUserName.getText().toString().trim()).isEmpty()) {
+                            showToast("You didn't enter your name yet!");
+                        } else {
+                            logEvent("Dismiss register dialog");
+                            dialog.dismiss();
+                            logEvent("Switch to Game Play Activity.");
+                            Intent intent = new Intent(MainActivity.this, GameplayActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString(PLAYER_NAME, userName);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        }
+                    } catch (Exception e) {
+                        showToast(e.getMessage());
                     }
-                } catch(Exception e){
-                    showToast(e.getMessage());
                 }
-            }
-        });
+            });
+            btnRight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    logEvent("Dismiss register dialog");
+                    dialog.dismiss();
+                }
+            });
+        } else {
+            TextView txMessage = (TextView) dialog.findViewById(R.id.txMessage);
+            Player currentPlayer = list.get(0);
+            txMessage.setText(String.format("Are you %s ?", currentPlayer.getName()));
+            btnLeft.setText(String.format("Continue as %s", currentPlayer.getName()));
+            btnRight.setText("Play New");
 
-        logEvent("Show register dialog");
+            btnLeft.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    logEvent("Dismiss register dialog");
+                    dialog.dismiss();
+                    logEvent("Switch to Game Play Activity.");
+                    Intent intent = new Intent(MainActivity.this, GameplayActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString(PLAYER_NAME, list.get(0).getName());
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+            });
+            btnRight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        EditText txUserName = (EditText) dialog.findViewById(R.id.edUsername);
+                        String userName;
+                        if ((userName = txUserName.getText().toString().trim()).isEmpty()) {
+                            showToast("You didn't enter your name yet!");
+                        } else {
+                            logEvent("Dismiss register dialog");
+                            dialog.dismiss();
+                            logEvent("Switch to Game Play Activity.");
+                            Intent intent = new Intent(MainActivity.this, GameplayActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString(PLAYER_NAME, userName);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        }
+                    } catch (Exception e) {
+                        showToast(e.getMessage());
+                    }
+                }
+            });
+        }
+
+        logEvent("Show dialog");
         dialog.show();
 
     }
