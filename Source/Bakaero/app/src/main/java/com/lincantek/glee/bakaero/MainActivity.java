@@ -18,11 +18,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String PLAYER_NAME = "BAKANAME";
     Button btnPlay, btnLadder, btnHelp;
 
+    DBContext dbContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         logEvent("Main Create Start");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        dbContext = DBContext.getInst();
         init_view();
         logEvent("Main Create End");
     }
@@ -59,11 +62,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
     private Dialog dialog;
     public void showDialog(){
         dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         dialog.setContentView(R.layout.register_layout);
 
         Button btnCancel = (Button) dialog.findViewById(R.id.btnCancelRegist);

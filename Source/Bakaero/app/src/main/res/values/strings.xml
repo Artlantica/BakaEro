@@ -18,5 +18,7 @@
     <string name="fine">OK! Fine</string>
     <string name="who_played_that_game">WHO PLAYED THAT GAME ?</string>
     <string name="i_know_that_someone_want_to_record_their_stupid_level">someone want to record their stupid things</string>
+    <string name="delete_all_stupid_things">Delete all Stupid things</string>
+    <string name="no_records">No stupid things here</string>
 
 </resources>
