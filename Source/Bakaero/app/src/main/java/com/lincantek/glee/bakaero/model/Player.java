@@ -1,5 +1,6 @@
 package com.lincantek.glee.bakaero.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import io.realm.RealmObject;
@@ -10,11 +11,11 @@ import io.realm.annotations.PrimaryKey;
  */
 
 public class Player extends RealmObject{
-
-    @PrimaryKey
-    //private String id;    remove id/use name as primary key
     private String name;
     private int score;
+
+    @PrimaryKey
+    private String timeKey;
     private Date timeRecord;
     private String killer;
 
@@ -26,6 +27,8 @@ public class Player extends RealmObject{
         this.name = name;
         score=0;
         timeRecord = new Date();
+        SimpleDateFormat formater = new SimpleDateFormat("hhmmddMMyyyy");
+        timeKey = formater.format(timeRecord);
     }
 
     /**
@@ -53,5 +56,9 @@ public class Player extends RealmObject{
 
     public void setKiller(String killer) {
         this.killer = killer;
+    }
+
+    public String getTimeKey() {
+        return timeKey;
     }
 }

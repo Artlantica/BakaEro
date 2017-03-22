@@ -80,8 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnLeft = (Button) dialog.findViewById(R.id.btnRegist);
         Button btnRight = (Button) dialog.findViewById(R.id.btnCancelRegist);
 
-        showToast(String.format("%d", list.size()));
-
         if (list.isEmpty()) {
             btnLeft.setOnClickListener(new View.OnClickListener() {
                 @Override

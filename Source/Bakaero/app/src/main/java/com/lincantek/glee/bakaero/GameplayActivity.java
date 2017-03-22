@@ -1,6 +1,7 @@
 package com.lincantek.glee.bakaero;
 
 import android.app.Dialog;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -66,6 +67,10 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         //init widgets
         initialViews();
 
+        // get database context
+        dbContext = DBContext.getInst();
+
+
         //create Player for new sesson
         Bundle bundle = getIntent().getExtras();
         String playerName="StupidOne";
@@ -73,9 +78,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             playerName = bundle.getString(MainActivity.PLAYER_NAME);
         }
         player = new Player(playerName);
-
-        // get database context
-        dbContext = DBContext.getInst();
+        Toast.makeText(this, player.getTimeKey(), Toast.LENGTH_SHORT).show();
 
         //animation
         overridePendingTransition(R.anim.trans_in, R.anim.trans_out);
@@ -157,14 +160,18 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         dbContext.savePlayer(player);
 
     }
-
-    /**
-     * Called when a view has been clicked.
-     *
-     * @param v The view that was clicked.
-     */
+    MediaPlayer mp;
     @Override
     public void onClick(View v) {
+        mp = MediaPlayer.create(this, R.raw.click);
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                // TODO Auto-generated method stub
+                mp.release();
+            }
+        });
+        mp.start();
         for (int i=0; i<BUTTON_IDS.length; i++) {
             if (v.getId()==BUTTON_IDS[i]) {
                 switch (i) {
@@ -201,6 +208,8 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void nextQuestion(){
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.score);
+        mp.start();
         updateScore();
         mCountDownTimer.cancel();
         loadExpression();
