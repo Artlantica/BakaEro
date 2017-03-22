@@ -78,7 +78,6 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             playerName = bundle.getString(MainActivity.PLAYER_NAME);
         }
         player = new Player(playerName);
-        Toast.makeText(this, player.getTimeKey(), Toast.LENGTH_SHORT).show();
 
         //animation
         overridePendingTransition(R.anim.trans_in, R.anim.trans_out);

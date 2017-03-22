@@ -27,7 +27,7 @@ public class Player extends RealmObject{
         this.name = name;
         score=0;
         timeRecord = new Date();
-        SimpleDateFormat formater = new SimpleDateFormat("hhmmddMMyyyy");
+        SimpleDateFormat formater = new SimpleDateFormat("hhmmssddMMyyyy");
         timeKey = formater.format(timeRecord);
     }
 
