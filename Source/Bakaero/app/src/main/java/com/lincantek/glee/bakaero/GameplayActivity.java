@@ -83,6 +83,17 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         overridePendingTransition(R.anim.trans_in, R.anim.trans_out);
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
+
+    public void back() {
+        super.onBackPressed();
+        //animation
+        overridePendingTransition(R.anim.trans_back_in, R.anim.trans_back_out);
+    }
+
     private void initialViews() {
         generateKeypad();
 
@@ -118,14 +129,6 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        //animation
-        overridePendingTransition(R.anim.trans_back_in, R.anim.trans_back_out);
-    }
-
     private Dialog dialog;
     public void endGame(){
         if (mCountDownTimer!=null){
@@ -149,7 +152,7 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View v) {
                 logEvent("Dismiss dialog");
                 dialog.dismiss();
-                GameplayActivity.this.onBackPressed();
+                GameplayActivity.this.back();
             }
         });
 
@@ -166,7 +169,6 @@ public class GameplayActivity extends AppCompatActivity implements View.OnClickL
         mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                // TODO Auto-generated method stub
                 mp.release();
             }
         });

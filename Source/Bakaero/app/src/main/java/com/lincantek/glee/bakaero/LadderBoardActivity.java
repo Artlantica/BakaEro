@@ -47,6 +47,9 @@ public class LadderBoardActivity extends AppCompatActivity {
 
         loadScoreList();
 
+
+        //animation
+        overridePendingTransition(R.anim.trans_in, R.anim.trans_out);
     }
 
     private void loadScoreList(){
@@ -55,5 +58,12 @@ public class LadderBoardActivity extends AppCompatActivity {
         listView.setAdapter(apdapter);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //animation
+        overridePendingTransition(R.anim.trans_back_in, R.anim.trans_back_out);
+    }
 
 }
